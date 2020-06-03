@@ -1,40 +1,25 @@
-GitBook Sample Plugin
+GitBook Puzzle Plugin
 ==============
 
-This is a model for GitBook plugins.
+该插件用于给 GitBook 页面插入 Puzzle 初始化代码
 
-## How GitBook plugin works?
-
-A plugin for GitBook is a node package that can be published on [NPM](http://www.npmjs.org). It has to follow the name convention: `gitbook-plugin-*name*`.
-
-### package.json
-
-#### name
-
-The package name should begin with ```gitbook-plugin-```.
-
-Examples: `gitbook-plugin-mixpanel`, `gitbook-plugin-googleanalytics`.
-
-#### engine
-
-The package.json should contain a `engine` field using [the standard norm](https://www.npmjs.org/doc/json.html#engines).
+使用方式：
 
 ```
-"engines": {
-    "gitbook": "*"
+npm install --save gitbook-plugin-puzzle
+```
+
+```
+// book.json
+
+"plugins": [
+    ... //others
+    "puzzle"
+],
+"pluginsConfig": {
+    ... //others
+    "puzzle": {
+      "id": "000094" // 输入 puzzle 平台的脚本ID, 注意是 16 进制ID
+    }
 }
 ```
-
-For example if you want your plugin to supports only GitBook version supperior to 0.3.1:
-
-```
-"engines": {
-    "gitbook": ">=0.3.1"
-}
-```
-
-### entry point
-
-The plugin entry point should return an object with some metadata.
-
-
